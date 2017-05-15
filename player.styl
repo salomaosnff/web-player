@@ -1,0 +1,206 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons"
+*{
+  margin 0
+  padding 0
+  box-sizing border-box
+}
+#player{
+  background #800058
+  color #FFF
+  font 16px Arial, sans-serif
+  cursor default
+
+  .label{
+    margin 0 1em 1em 1em
+    font-size .8em
+
+    i, span{
+      display inline-block
+      vertical-align middle
+      font-size 1em
+    }
+
+    i{
+      font-size 1.618em
+    }
+
+    span{
+      margin-left .5em
+    }
+  }
+
+  #tgl_playlist{
+    display none
+
+    &:checked{
+      & ~ .bottom ul{
+        max-height 768px
+      }
+    }
+  }
+
+  .top{
+    display flex
+    flex-direction row
+    align-items center
+    padding 1em
+
+    .toggle{
+      flex 0 auto
+      background: none
+      border none
+      border-radius 64px
+      transition all .21s ease
+      cursor pointer
+      margin-right 1.6em
+      margin-left -1em
+
+      i {
+        color #FFFFFF
+        font-size 1.618em ** 2.5
+      }
+
+      &:not(:disabled):hover{
+        transform scale(1.1618)
+      }
+      &:not(:disabled):active{
+        transform scale(.9)
+      }
+
+      &:disabled{
+        cursor default
+        opacity: .18
+        animation loading .25s ease-out infinite alternate
+      }
+    }
+
+    .current{
+      flex 1
+      font bold 1.2em Arial, sans-serif;
+    }
+
+    .volume{
+      display flex
+      flex 0 auto
+      width 128px
+      align-items center
+
+      i{
+        margin 0 .5em 0 0
+        cursor pointer
+      }
+
+      .input{
+        width 100%
+        background rgba(#FFF, 18%)
+        border none
+        box-shadow none
+        height 2px
+        border-radius 0
+        align-items center
+        cursor pointer
+        display block
+
+        .noUi-base{
+          position: absolute
+          top 50%
+          flex 1
+          height 1.2em
+          transform translate(0, -50%)
+        }
+
+        .noUi-connect{
+          background orange
+          box-shadow none
+          height 2px
+        }
+
+        .noUi-origin, .noUi-connect{
+          top 50%
+          transform translate(0, -50%)
+        }
+
+        .noUi-handle{
+          position absolute
+          background orange
+          border none
+          width 1em
+          height 1em
+          border-radius 1em
+          transform translate(9px, -50%)
+          top 50%
+          box-shadow 1px 2px 3px rgba(#000, 21%)
+          cursor pointer
+
+          &:after, &:before{
+            display none
+          }
+
+          &:hover{
+            transform translate(9px, -50%) scale(1.1)
+          }
+        }
+      }
+
+      .label{
+        margin 0
+      }
+    }
+  }
+
+  .middle{
+    display flex
+
+  }
+
+  .bottom{
+    border none
+    border-top .15em solid rgba(#FFF, 18%)
+
+    ul{
+      display block
+      overflow hidden
+      max-height 0
+      transition all .21s ease
+
+      li{
+        padding 1em
+      }
+    }
+
+    .tgl_playlist{
+      display block
+      padding .8em
+      text-align: center
+      background rgba(#FFF, 18%)
+      cursor: pointer
+    }
+  }
+
+  .status{
+    margin-top 2px
+    .led{
+      $r = 10px
+      display inline-block
+      width $r
+      height $r
+      background: rgba(#FFF, 50%)
+      border-radius 100%
+      vertical-align center
+
+      &.green{
+        background #41ff8c
+      }
+
+      &.red{
+        background #ff4242
+      }
+    }
+  }
+}
+
+@keyframes loading{
+  to{
+    transform: translate(0, -25%);
+  }
+}
