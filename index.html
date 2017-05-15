@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="nouislider.min.css">
+    <link rel="stylesheet" href="player.css">
+    <script src="nouislider.min.js"></script>
+    <script src="shoutcast.js"></script>
+</head>
+<body>
+<div id="player">
+    <input type="checkbox" id="tgl_playlist">
+    <div class="top">
+        <button class="toggle">
+            <i class="material-icons">play_arrow</i>
+        </button>
+        <p class="current">Sem dados</p>
+        <div class="volume">
+            <i class="material-icons" title="Mudo">volume_up</i>
+            <div class="input"></div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="label status" title="Status da rádio">
+            <span class="led"></span><span class="value">Offline</span>
+        </div>
+        <div class="label ouvintes" title="Ouvintes">
+            <i class="material-icons">group</i><span class="value">Sem dados</span>
+        </div>
+        <div class="label bitrate" title="Qualidade da transmissão">
+            <i class="material-icons">settings_input_antenna</i><span class="value">Sem dados</span>
+        </div>
+    </div>
+    <div class="bottom">
+        <label for="tgl_playlist" class="tgl_playlist">Tocadas recentemente</label>
+        <ul></ul>
+    </div>
+</div>
+<div id="slider-color"></div>
+<script src="player.js"></script>
+</body>
+</html>
