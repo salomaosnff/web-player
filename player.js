@@ -50,10 +50,10 @@ window.onload = function() {
 
 
     var radio = new Shoutcast({
-        host: '172.82.128.10',
-        port: '19342',
-		//host:'69.30.217.222',
-		//port: '8948',
+        //host: '172.82.128.10',
+        //port: '19342',
+	host:'69.30.217.222',
+	port: '8948',
         stats: atualizarStatus,
         played: atualizarTocadas
     });
