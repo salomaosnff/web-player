@@ -12,26 +12,18 @@ const Shoutcast = (function(){
      * @param callback
      * @param callbackParam
      */
-    const jsonp = function (url, callback, callbackParam){
-        callbackParam = (callbackParam || 'callback')+'';
+    const jsonp = function (url, callback){
+        const req = new XMLHttpRequest();
 
-        const callbackName = '__jsonp_' + Date.now();
-        const script = document.createElement('script');
-
-        url += (url.indexOf("?") >= 0 ? '&' : '?') + callbackParam + '=' + callbackName;
-        script.src = url;
-
-
-        window[callbackName] = function(data){
-            delete window[callbackName];
-
-            script.parentNode.removeChild(script);
-            callback(data)
+        req.open('GET', 'https://crossorigin.me/'+url);
+        req.onreadystatechange = function(){
+            if (req.readyState === XMLHttpRequest.DONE) {
+                const data = req.status === 200 ? JSON.parse(req.responseText) : {};
+                return callback(data);
+            }
         };
 
-        document.head.appendChild(script);
-
-        return callbackName;
+        req.send();
     };
 
     /**
