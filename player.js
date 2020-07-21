@@ -50,8 +50,8 @@ window.onload = function() {
 
 
     var radio = new Shoutcast({
-        host: '172.82.128.10',
-        port: '19342',
+        host: 'ssl.srvstm.com',
+        port: '18860',
 	//host:'69.30.217.222',
 	//port: '8948',
         stats: atualizarStatus,
